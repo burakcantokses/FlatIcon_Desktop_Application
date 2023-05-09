@@ -20,14 +20,19 @@ namespace FlatIcon_Desktop_Application.Managers.Request
             Accept = accept;
         }
 
-        public string request(string url, string apiKey, string body) 
+        public string getBearerToken(string url, string apiKey)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = RequestType.ToString();
             request.ContentType = ContentType;
             request.Accept = Accept;
 
-            string postData = body;
+            string postData = string.Format(
+                "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\n" +
+                "Content-Disposition: form-data; name=\"apikey\"\r\n\r\n" +
+                "{0}\r\n" +
+                "------WebKitFormBoundary7MA4YWxkTrZu0gW--\r\n",
+                apiKey);
             byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(postData);
             request.ContentLength = byteArray.Length;
 
@@ -36,17 +41,17 @@ namespace FlatIcon_Desktop_Application.Managers.Request
                 dataStream.Write(byteArray, 0, byteArray.Length);
             }
 
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            string responseText;
-            using (Stream responseStream = response.GetResponseStream())
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
             {
-                StreamReader reader = new StreamReader(responseStream, System.Text.Encoding.UTF8);
-                responseText = reader.ReadToEnd();
-                Console.WriteLine(responseText);
+                using (Stream responseStream = response.GetResponseStream())
+                {
+                    using (StreamReader reader = new StreamReader(responseStream, System.Text.Encoding.UTF8))
+                    {
+                        string responseText = reader.ReadToEnd();
+                        return responseText;
+                    }
+                }
             }
-
-            response.Close();
-            return responseText;
         }
     }
 }
