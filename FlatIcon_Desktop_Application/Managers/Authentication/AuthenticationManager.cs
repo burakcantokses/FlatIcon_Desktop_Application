@@ -1,5 +1,5 @@
-﻿using FlatIcon_Desktop_Application.Managers.Authentication.BearerToken;
-using FlatIcon_Desktop_Application.Managers.Request;
+﻿using FlatIcon_Desktop_Application.Managers.Request;
+using FlatIcon_Desktop_Application.Schemas.Authentication;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -23,9 +23,18 @@ namespace FlatIcon_Desktop_Application.Managers.Authentication
         public string GetBearerToken()
         {
             RequestManager requestManager = new RequestManager(Request.Type.POST, "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW", "application/json");
-            string data = requestManager.getBearerToken(url, Program.API_KEY);
-            BearerToken.BearerToken bearerToken = JsonConvert.DeserializeObject<BearerToken.BearerToken>(data);
-            return bearerToken.data.token;
+            object data = requestManager.getBearerToken(url, Program.API_KEY);
+            if (data is LoginResponse)
+            {
+                LoginResponse loginResponse = (LoginResponse)data;
+                return loginResponse.token;
+            }
+            else if (data is string)
+            {
+                string errorMessage = (string)data;
+                return errorMessage;
+            }
+            return null;
         }
     }
 }

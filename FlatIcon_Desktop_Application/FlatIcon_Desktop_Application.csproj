@@ -47,11 +47,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Managers\Authentication\AuthenticationManager.cs" />
-    <Compile Include="Managers\Authentication\BearerToken\BearerToken.cs" />
     <Compile Include="Managers\Request\RequestManager.cs" />
     <Compile Include="Managers\Request\Type.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Schemas\Authentication\ApiKeyNotValid.cs" />
+    <Compile Include="Schemas\ErrorResponse.cs" />
+    <Compile Include="Schemas\Authentication\ExpiredToken.cs" />
+    <Compile Include="Schemas\Icon\IconResponse.cs" />
+    <Compile Include="Schemas\Icon\Icons.cs" />
+    <Compile Include="Schemas\Icon\IconsResponse.cs" />
+    <Compile Include="Schemas\Authentication\LoginResponse.cs" />
+    <Compile Include="Schemas\Metadata.cs" />
+    <Compile Include="Schemas\Pack\Pack.cs" />
+    <Compile Include="Schemas\Pack\PackResponse.cs" />
+    <Compile Include="Schemas\Pack\PacksResponse.cs" />
+    <Compile Include="Schemas\Style\Style.cs" />
+    <Compile Include="Schemas\Style\StyleResponse.cs" />
+    <Compile Include="Schemas\Style\StylesResponse.cs" />
+    <Compile Include="Schemas\Tag\Tag.cs" />
+    <Compile Include="Schemas\Tag\TagsResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
