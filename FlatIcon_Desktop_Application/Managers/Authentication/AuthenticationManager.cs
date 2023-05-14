@@ -17,22 +17,17 @@ namespace FlatIcon_Desktop_Application.Managers.Authentication
         public AuthenticationManager(string apiKey) 
         {
             url = Program.MAIN_URL + Program.VERSION + "/app/authentication";
-            authenticationToken = GetBearerToken();
+            authenticationToken = GetBearerTokenAsync(apiKey).Result;
         }
 
-        public string GetBearerToken()
+        public async Task<string> GetBearerTokenAsync(string apiKey)
         {
             RequestManager requestManager = new RequestManager(Request.Type.POST, "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW", "application/json");
-            object data = requestManager.getBearerToken(url, Program.API_KEY);
-            if (data is LoginResponse)
+            var response = await requestManager.GetBearerTokenAsync(url, apiKey);
+
+            if (response != null)
             {
-                LoginResponse loginResponse = (LoginResponse)data;
-                return loginResponse.token;
-            }
-            else if (data is string)
-            {
-                string errorMessage = (string)data;
-                return errorMessage;
+                return response.token;
             }
             return null;
         }
