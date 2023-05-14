@@ -1,4 +1,5 @@
 ﻿using FlatIcon_Desktop_Application.Managers.Request;
+using FlatIcon_Desktop_Application.Schemas.Style;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,21 +12,27 @@ namespace FlatIcon_Desktop_Application.Managers.Styles
 {
     public class StylesManager
     {
+        public int? page { get; set; }
+        public int? limit { get; set; }
         public string url { get; set; }
+        public StylesResponse styles { get; set; }
 
-        public StylesManager() {
+        public StylesManager(int? page = null, int? limit = null)
+        {
+            this.page = page;
+            this.limit = limit;
             url = Program.MAIN_URL + Program.VERSION + "/styles";
-            Console.WriteLine(getStyles(url, Program.authenticationManager.authenticationToken).Result);
+            styles = getStyles(url, Program.authenticationManager.authenticationToken).Result;
         }
 
-        public async Task<string> getStyles(string url, string authenticationToken)
+        public async Task<StylesResponse> getStyles(string url, string authenticationToken)
         {
             RequestManager requestManager = new RequestManager(Request.Type.POST, null, "application/json");
             var response = await requestManager.getStyles(url, authenticationToken);
 
             if (response != null)
             {
-                return response.data[0].packs;
+                return response;
             }
             return null;
         }

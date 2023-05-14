@@ -8,7 +8,7 @@ namespace FlatIcon_Desktop_Application.Schemas.Tag
 {
     public class TagsResponse
     {
-        public Tag data {  get; set; }
+        public List<Tag> data {  get; set; }
         public Metadata metadata { get; set; }
     }
 }
