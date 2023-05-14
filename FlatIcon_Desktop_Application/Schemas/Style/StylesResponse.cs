@@ -8,7 +8,7 @@ namespace FlatIcon_Desktop_Application.Schemas.Style
 {
     public class StylesResponse
     {
-        public Style data { get; set; }
+        public List<Style> data { get; set; }
         public Metadata metadata { get; set; }
     }
 }
