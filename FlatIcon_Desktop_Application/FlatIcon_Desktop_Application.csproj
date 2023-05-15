@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Managers\Authentication\AuthenticationManager.cs" />
+    <Compile Include="Managers\Items\Icon\IconManager.cs" />
     <Compile Include="Managers\Request\RequestManager.cs" />
     <Compile Include="Managers\Request\Type.cs" />
     <Compile Include="Managers\Styles\StyleManager.cs" />

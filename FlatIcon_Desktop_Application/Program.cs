@@ -1,4 +1,5 @@
 ﻿using FlatIcon_Desktop_Application.Managers.Authentication;
+using FlatIcon_Desktop_Application.Managers.Items.Icon;
 using FlatIcon_Desktop_Application.Managers.Request;
 using FlatIcon_Desktop_Application.Managers.Styles;
 using FlatIcon_Desktop_Application.Managers.Tags;
@@ -20,6 +21,7 @@ namespace FlatIcon_Desktop_Application
         public static StylesManager stylesManager;
         public static TagsManager tagsManager;
         public static StyleManager styleManager;
+        public static IconManager iconManager;
 
         static void Main(string[] args)
         {
@@ -27,7 +29,9 @@ namespace FlatIcon_Desktop_Application
             stylesManager = new StylesManager();
             tagsManager = new TagsManager();
             styleManager = new StyleManager(5);
-            Console.WriteLine(styleManager.style.data.family_name);
+            iconManager = new IconManager(5);
+            // test area
+            Console.WriteLine(iconManager.iconResponse.data.images["512"]);
             Console.WriteLine(authenticationManager.authenticationToken);
             Console.ReadKey();
         }
