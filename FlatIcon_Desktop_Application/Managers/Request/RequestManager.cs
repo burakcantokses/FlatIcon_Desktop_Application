@@ -77,8 +77,8 @@ namespace FlatIcon_Desktop_Application.Managers.Request
         }
         #endregion
 
-        #region getStyles
-        public async Task<StylesResponse> getStyles(string url, string authenticationToken)
+        #region GetStylesAsync
+        public async Task<StylesResponse> GetStylesAsync(string url, string authenticationToken)
         {
             httpClient.DefaultRequestHeaders.Accept.Clear();
             httpClient.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", authenticationToken));
@@ -111,8 +111,8 @@ namespace FlatIcon_Desktop_Application.Managers.Request
         }
         #endregion
 
-        #region getStyle
-        public async Task<StyleResponse> getStyle(string url, string authenticationToken)
+        #region GetStyleAsync
+        public async Task<StyleResponse> GetStyleAsync(string url, string authenticationToken)
         {
             httpClient.DefaultRequestHeaders.Accept.Clear();
             httpClient.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", authenticationToken));
@@ -145,8 +145,8 @@ namespace FlatIcon_Desktop_Application.Managers.Request
         }
         #endregion
 
-        #region getTags
-        public async Task<TagsResponse> getTags(string url, string authenticationToken)
+        #region GetTagsAsync
+        public async Task<TagsResponse> GetTagsAsync(string url, string authenticationToken)
         {
             httpClient.DefaultRequestHeaders.Accept.Clear();
             httpClient.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", authenticationToken));

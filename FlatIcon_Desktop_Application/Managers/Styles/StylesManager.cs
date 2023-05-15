@@ -28,7 +28,7 @@ namespace FlatIcon_Desktop_Application.Managers.Styles
         public async Task<StylesResponse> getStyles(string url, string authenticationToken)
         {
             RequestManager requestManager = new RequestManager(Request.Type.POST, null, "application/json");
-            var response = await requestManager.getStyles(url, authenticationToken);
+            var response = await requestManager.GetStylesAsync(url, authenticationToken);
 
             if (response != null)
             {
