@@ -1,31 +1,32 @@
 ﻿using FlatIcon_Desktop_Application.Managers.Request;
-using FlatIcon_Desktop_Application.Schemas.Icon;
+using FlatIcon_Desktop_Application.Schemas.Pack;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlatIcon_Desktop_Application.Managers.Items.Icon
+namespace FlatIcon_Desktop_Application.Managers.Items.Pack
 {
-    public class IconManager
+    public class PackManager
     {
         public string url { get; set; }
         public int id { get; set; }
         public string iconType { get; set; }
-        public IconResponse icon { get; set; }
-        public IconManager(int id, string iconType = null)
+        public PackResponse pack { get; set; }
+
+        public PackManager(int id, string iconType = null)
         {
-            url = Program.MAIN_URL + Program.VERSION + "/item/icon/"+id;
+            url = Program.MAIN_URL + Program.VERSION + "/item/pack/" + id;
             this.id = id;
             this.iconType = iconType;
-            icon = getIcon(url, Program.authenticationManager.authenticationToken).Result;
+            pack = getPack(url, Program.authenticationManager.authenticationToken).Result;
         }
 
-        public async Task<IconResponse> getIcon(string  url, string authenticationToken)
+        public async Task<PackResponse> getPack(string url, string authenticationToken)
         {
             RequestManager requestManager = new RequestManager(Request.Type.POST, null, "application/json");
-            var response = await requestManager.GetIconAsync(url, authenticationToken);
+            var response = await requestManager.GetPackResponseAsync(url, authenticationToken);
 
             if (response != null)
             {

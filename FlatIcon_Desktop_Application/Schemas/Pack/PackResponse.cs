@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlatIcon_Desktop_Application.Schemas.Pack
 {
-    internal class PackResponse
+    public class PackResponse
     {
         public Pack data { get; set; }
     }

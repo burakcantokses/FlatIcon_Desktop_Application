@@ -20,6 +20,6 @@ namespace FlatIcon_Desktop_Application.Schemas.Pack
         public int pack_items { get; set; }
         public string tags { get; set; }
         public int equivalents { get; set; }
-        public List<string> images { get; set; }
+        public Dictionary<string,string> images { get; set; }
     }
 }
