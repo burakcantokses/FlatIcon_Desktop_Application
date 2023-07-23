@@ -1,4 +1,5 @@
 ﻿using FlatIcon_Desktop_Application.Managers.Authentication;
+using FlatIcon_Desktop_Application.Managers.Items.Download;
 using FlatIcon_Desktop_Application.Managers.Items.Icon;
 using FlatIcon_Desktop_Application.Managers.Items.Pack;
 using FlatIcon_Desktop_Application.Managers.Request;
@@ -24,8 +25,9 @@ namespace FlatIcon_Desktop_Application
         public static StyleManager styleManager;
         public static IconManager iconManager;
         public static PackManager packManager;
+        public static DownloadManager downloadManager;
 
-        static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             authenticationManager = new AuthenticationManager(API_KEY);
             stylesManager = new StylesManager();
@@ -33,8 +35,9 @@ namespace FlatIcon_Desktop_Application
             styleManager = new StyleManager(5);
             iconManager = new IconManager(5);
             packManager = new PackManager(110841);
+            downloadManager = new DownloadManager(31, "png");
             // test area
-            Console.WriteLine(packManager.pack.data.team_name);
+            Console.WriteLine();
             Console.WriteLine(authenticationManager.authenticationToken);
             Console.ReadKey();
         }
