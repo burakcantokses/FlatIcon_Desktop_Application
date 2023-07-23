@@ -284,5 +284,38 @@ namespace FlatIcon_Desktop_Application.Managers.Request
         }
         #endregion
 
+        #region GetSearchIconsAsync
+        public async Task<IconsResponse> GetSearchIconsAsync(string url, string authenticationToken)
+        {
+            httpClient.DefaultRequestHeaders.Accept.Clear();
+            httpClient.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", authenticationToken));
+            httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue(Accept));
+            try
+            {
+                var response = await httpClient.GetAsync(url);
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseText = await response.Content.ReadAsStringAsync();
+                    var packResponse = JsonConvert.DeserializeObject<IconsResponse>(responseText);
+                    return packResponse;
+                }
+                else if (response.StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    var errorResponseText = await response.Content.ReadAsStringAsync();
+                    var errorResponse = JsonConvert.DeserializeObject<ExpiredToken>(errorResponseText);
+                    throw new Exception(errorResponse.status + " " + errorResponse.message);
+                }
+                else
+                {
+                    throw new Exception(response.StatusCode.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+        #endregion
     }
 }

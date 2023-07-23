@@ -52,6 +52,7 @@
     <Compile Include="Managers\Items\Pack\PackManager.cs" />
     <Compile Include="Managers\Request\RequestManager.cs" />
     <Compile Include="Managers\Request\Type.cs" />
+    <Compile Include="Managers\Search\SearchIconManager.cs" />
     <Compile Include="Managers\Styles\StyleManager.cs" />
     <Compile Include="Managers\Styles\StylesManager.cs" />
     <Compile Include="Managers\Tags\TagsManager.cs" />

@@ -3,8 +3,10 @@ using FlatIcon_Desktop_Application.Managers.Items.Download;
 using FlatIcon_Desktop_Application.Managers.Items.Icon;
 using FlatIcon_Desktop_Application.Managers.Items.Pack;
 using FlatIcon_Desktop_Application.Managers.Request;
+using FlatIcon_Desktop_Application.Managers.Search;
 using FlatIcon_Desktop_Application.Managers.Styles;
 using FlatIcon_Desktop_Application.Managers.Tags;
+using FlatIcon_Desktop_Application.Schemas.Icon;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +28,7 @@ namespace FlatIcon_Desktop_Application
         public static IconManager iconManager;
         public static PackManager packManager;
         public static DownloadManager downloadManager;
+        public static SearchIconManager searchIconManager;
 
         public static async Task Main(string[] args)
         {
@@ -36,6 +39,8 @@ namespace FlatIcon_Desktop_Application
             iconManager = new IconManager(5);
             packManager = new PackManager(110841);
             downloadManager = new DownloadManager(31, "png");
+            searchIconManager = new SearchIconManager("king");
+            Console.WriteLine(searchIconManager.iconResponse.data[5].pack_name);
             // test area
             Console.WriteLine();
             Console.WriteLine(authenticationManager.authenticationToken);
