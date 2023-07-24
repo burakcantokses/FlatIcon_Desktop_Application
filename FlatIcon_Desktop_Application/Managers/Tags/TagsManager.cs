@@ -28,7 +28,7 @@ namespace FlatIcon_Desktop_Application.Managers.Tags
 
         public async Task<TagsResponse> getTags(string url, string authenticationToken)
         {
-            RequestManager requestManager = new RequestManager(Request.Type.POST, null, "application/json");
+            RequestManager requestManager = new RequestManager(Request.Type.GET, null, "application/json");
             var response = await requestManager.GetTagsAsync(url, authenticationToken);
 
             if (response != null)

@@ -32,7 +32,7 @@ namespace FlatIcon_Desktop_Application.Managers.Search
 
         public async Task<PacksResponse> searchPack(string authenticationToken)
         {
-            RequestManager requestManager = new RequestManager(Request.Type.POST, null, "application/json");
+            RequestManager requestManager = new RequestManager(Request.Type.GET, null, "application/json");
             var response = await requestManager.GetSearchPacksAsync(url, authenticationToken);
 
             if (response != null)

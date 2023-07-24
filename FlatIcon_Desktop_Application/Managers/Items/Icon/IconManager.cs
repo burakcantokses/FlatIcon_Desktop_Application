@@ -24,7 +24,7 @@ namespace FlatIcon_Desktop_Application.Managers.Items.Icon
 
         public async Task<IconResponse> getIcon(string  url, string authenticationToken)
         {
-            RequestManager requestManager = new RequestManager(Request.Type.POST, null, "application/json");
+            RequestManager requestManager = new RequestManager(Request.Type.GET, null, "application/json");
             var response = await requestManager.GetIconAsync(url, authenticationToken);
 
             if (response != null)

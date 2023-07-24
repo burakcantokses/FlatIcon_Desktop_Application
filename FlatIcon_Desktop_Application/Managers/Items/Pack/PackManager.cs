@@ -25,7 +25,7 @@ namespace FlatIcon_Desktop_Application.Managers.Items.Pack
 
         public async Task<PackResponse> getPack(string url, string authenticationToken)
         {
-            RequestManager requestManager = new RequestManager(Request.Type.POST, null, "application/json");
+            RequestManager requestManager = new RequestManager(Request.Type.GET, null, "application/json");
             var response = await requestManager.GetPackResponseAsync(url, authenticationToken);
 
             if (response != null)

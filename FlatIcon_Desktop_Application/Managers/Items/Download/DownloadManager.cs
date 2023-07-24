@@ -29,7 +29,7 @@ namespace FlatIcon_Desktop_Application.Managers.Items.Download
 
         public async Task downloadIcon(string authenticationToken, string fileName)
         {
-            RequestManager requestManager = new RequestManager(Request.Type.POST, null, "application/json");
+            RequestManager requestManager = new RequestManager(Request.Type.GET, null, "application/json");
             await requestManager.DownloadIconAsync(url, authenticationToken, fileName);
         }
     }

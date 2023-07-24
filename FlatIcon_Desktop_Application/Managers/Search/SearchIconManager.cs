@@ -43,7 +43,7 @@ namespace FlatIcon_Desktop_Application.Managers.Search
 
         public async Task<IconsResponse> searchIcon(string authenticationToken)
         {
-            RequestManager requestManager = new RequestManager(Request.Type.POST, null, "application/json");
+            RequestManager requestManager = new RequestManager(Request.Type.GET, null, "application/json");
             var response = await requestManager.GetSearchIconsAsync(url, authenticationToken);
             
             if (response != null)
