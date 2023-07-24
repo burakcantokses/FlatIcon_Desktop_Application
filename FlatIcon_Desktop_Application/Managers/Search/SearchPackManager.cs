@@ -13,15 +13,15 @@ namespace FlatIcon_Desktop_Application.Managers.Search
     {
         public string url { get; set; }
         // Required properties
-        public string q { get; set; } // Term to search for
+        public string q { get; set; }
 
         // Optional properties
-        public string orderBy { get; set; } // Order by in results ('priority' or 'added')
-        public int? page { get; set; } // Page number
-        public string styleColor { get; set; } // Filter results by color
-        public string styleShape { get; set; } // Filter results by shape
-        public int? limit { get; set; } // Number of max items returned per request
-        public string iconType { get; set; } // Resource Type ('standard' or 'sticker')
+        public string orderBy { get; set; }
+        public int? page { get; set; }
+        public string styleColor { get; set; }
+        public string styleShape { get; set; }
+        public int? limit { get; set; }
+        public string iconType { get; set; }
 
         public PacksResponse packsResponse { get; set; }
         public SearchPackManager(string q)

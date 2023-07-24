@@ -11,8 +11,13 @@ namespace FlatIcon_Desktop_Application.Managers.Items.Pack
     public class PackManager
     {
         public string url { get; set; }
+        // Required properties
         public int id { get; set; }
+
+        // Optional properties
         public string iconType { get; set; }
+        
+        // Schema
         public PackResponse pack { get; set; }
 
         public PackManager(int id, string iconType = null)

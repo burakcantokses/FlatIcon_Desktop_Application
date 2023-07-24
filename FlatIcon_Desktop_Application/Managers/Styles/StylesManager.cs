@@ -12,9 +12,13 @@ namespace FlatIcon_Desktop_Application.Managers.Styles
 {
     public class StylesManager
     {
+        public string url { get; set; }
+
+        // Optional properties
         public int? page { get; set; }
         public int? limit { get; set; }
-        public string url { get; set; }
+
+        // Schema
         public StylesResponse styles { get; set; }
 
         public StylesManager(int? page = null, int? limit = null)

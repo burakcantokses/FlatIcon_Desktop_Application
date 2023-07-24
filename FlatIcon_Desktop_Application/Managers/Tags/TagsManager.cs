@@ -10,11 +10,14 @@ namespace FlatIcon_Desktop_Application.Managers.Tags
 {
     public class TagsManager
     {
+        public string url { get; set; }
+
+        // Optional properties
         public int? page { get; set; }
         public int? limit { get; set; }
         public int? havingStickers { get; set; }
-        public string url { get; set; }
 
+        // Schema
         public TagsResponse tags { get; set; }
 
         public TagsManager(int? page = null, int? limit = null, int? havingStickers = null)

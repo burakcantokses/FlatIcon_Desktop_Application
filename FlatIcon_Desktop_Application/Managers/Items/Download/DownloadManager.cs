@@ -11,8 +11,12 @@ namespace FlatIcon_Desktop_Application.Managers.Items.Download
     public class DownloadManager
     {
         public string url {  get; set; }
+
+        // Required properties
         public int id { get; set; }
         public string format { get; set; }
+
+        // Optional properties
         public string color { get; set; }
         public string size { get; set; }
         public string iconType { get; set; }

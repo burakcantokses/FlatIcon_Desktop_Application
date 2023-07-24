@@ -10,9 +10,12 @@ namespace FlatIcon_Desktop_Application.Managers.Styles
 {
     public class StyleManager
     {
-        public int id {  get; set; }
         public string url { get; set; }
 
+        // Required properties
+        public int id {  get; set; }
+        
+        // Schema
         public StyleResponse style { get; set; }
         public StyleManager(int id)
         {

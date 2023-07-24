@@ -11,9 +11,15 @@ namespace FlatIcon_Desktop_Application.Managers.Items.Icon
     public class IconManager
     {
         public string url { get; set; }
+        // Required properties
         public int id { get; set; }
+
+        // Optional properties
         public string iconType { get; set; }
+
+        // Schema
         public IconResponse icon { get; set; }
+
         public IconManager(int id, string iconType = null)
         {
             url = Program.MAIN_URL + Program.VERSION + "/item/icon/"+id;
