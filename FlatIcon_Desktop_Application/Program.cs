@@ -29,6 +29,7 @@ namespace FlatIcon_Desktop_Application
         public static PackManager packManager;
         public static DownloadManager downloadManager;
         public static SearchIconManager searchIconManager;
+        public static SearchPackManager searchPackManager;
 
         public static async Task Main(string[] args)
         {
@@ -40,7 +41,8 @@ namespace FlatIcon_Desktop_Application
             packManager = new PackManager(110841);
             downloadManager = new DownloadManager(31, "png");
             searchIconManager = new SearchIconManager("king");
-            Console.WriteLine(searchIconManager.iconResponse.data[5].pack_name);
+            searchPackManager = new SearchPackManager("Game");
+            Console.WriteLine(searchPackManager.packsResponse.data[0].family_name);
             // test area
             Console.WriteLine();
             Console.WriteLine(authenticationManager.authenticationToken);

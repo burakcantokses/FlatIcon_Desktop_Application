@@ -8,7 +8,7 @@ namespace FlatIcon_Desktop_Application.Schemas.Pack
 {
     public class PacksResponse
     {
-        public Pack data { get; set; }
+        public List<Pack> data { get; set; }
         public Metadata metadata { get; set; }
     }
 }
